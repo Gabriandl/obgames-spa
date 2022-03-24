@@ -1,0 +1,22 @@
+<h1 *ngIf="!isChange" mat-dialog-title>Create Categoria</h1>
+<h1 *ngIf="isChange" mat-dialog-title>Edit Categoria</h1>
+<div mat-dialog-content>
+  <!--<mat-form-field *ngIf="isChange" appearance="fill">
+    <mat-label *ngIf="isChange" >Id</mat-label>
+    <input *ngIf="isChange" matInput [(ngModel)]="data.id">
+  </mat-form-field>-->
+  <mat-form-field appearance="fill">
+    <mat-label>Nome</mat-label>
+    <input matInput [(ngModel)]="data.nome">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Descricao</mat-label>
+    <input matInput [(ngModel)]="data.descricao">
+  </mat-form-field>
+  
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-button *ngIf="!isChange" (click)="sendCategoriaData(data)" cdkFocusInitial>Create</button>
+  <button mat-button *ngIf="isChange" (click)="sendCategoriaData(data)" cdkFocusInitial>Edit</button>
+</div>
