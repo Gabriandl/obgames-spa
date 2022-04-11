@@ -22,6 +22,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { CategoriaDialogComponent } from './shared/categoria-dialog/categoria-dialog.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { AvaliacaoComponent } from './views/avaliacao/avaliacao.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     FooterComponent,
     BrowserGameDialogComponent,
     CategoriaComponent,
-    CategoriaDialogComponent
+    CategoriaDialogComponent,
+    AvaliacaoComponent
   ],
   imports: [
     BrowserModule,
