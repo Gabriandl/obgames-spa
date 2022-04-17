@@ -1,0 +1,23 @@
+
+<mat-toolbar>
+    <span>Entrar</span>
+  </mat-toolbar>
+  <mat-card class="my-card">
+     <mat-card-content>
+        <form (ngSubmit)="login()" #form="ngForm" class="my-form">
+           <mat-form-field class="full-width">
+              <mat-label>Username</mat-label>
+              <input  matInput [(ngModel)]="loginData.username" placeholder="Usename" name="username" required>
+           </mat-form-field>
+           <mat-form-field class="full-width">
+              <mat-label>Senha</mat-label>
+              <input  matInput [(ngModel)]="loginData.password" type="password" placeholder="Senha" name="senha" required>
+           </mat-form-field>
+        </form>
+     </mat-card-content>
+     <mat-card-actions>
+        <button mat-raised-button (click)="login()" [disabled]="form.invalid" type="submit"  color="primary">Login</button>
+        <button mat-raised-button color="primary" [routerLink]="['/create-account']">Cadastrar-se</button>
+
+     </mat-card-actions>
+  </mat-card>
