@@ -22,6 +22,15 @@ import { MatSelectModule } from '@angular/material/select';
 import { CategoriaDialogComponent } from './shared/categoria-dialog/categoria-dialog.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { HomeComponent } from './views/home/home.component';
+import { AuthenticationComponent } from './views/authentication/authentication.component';
+import { LoginComponent } from './account/login/login.component';
+import { CreateAccountComponent } from './account/create-account/create-account.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
+import { httpInterceptorProviders } from './http-interceptors';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -31,7 +40,11 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     FooterComponent,
     BrowserGameDialogComponent,
     CategoriaComponent,
-    CategoriaDialogComponent
+    CategoriaDialogComponent,
+    HomeComponent,
+    AuthenticationComponent,
+    LoginComponent,
+    CreateAccountComponent
   ],
   imports: [
     BrowserModule,
@@ -49,10 +62,16 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatSelectModule,
     ReactiveFormsModule,
     MatMenuModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatCardModule,
+    MatDatepickerModule,
+    MatNativeDateModule
     
   ],
-  providers: [],
+  providers: [
+    httpInterceptorProviders,
+    { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

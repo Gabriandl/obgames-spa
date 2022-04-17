@@ -5,6 +5,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   providedIn: 'root'
 })
 export class NotifierService {
+  static showAllertNotification(message: string) {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(private snackBar: MatSnackBar) { }
 
