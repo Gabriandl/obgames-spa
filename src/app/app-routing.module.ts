@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CreateAccountComponent } from './account/create-account/create-account.component';
 import { LoginComponent } from './account/login/login.component';
+import { AppComponent } from './app.component';
 import { AuthGuard } from './services/auth.guard';
 import { AuthenticationComponent } from './views/authentication/authentication.component';
 import { BrowserGameComponent } from './views/browserGame/browserGame.component';
@@ -13,11 +14,20 @@ const routes: Routes = [
     path: '',
     component: HomeComponent,
     children: [
-      { path: '', component: BrowserGameComponent },
-      { path: 'browserGame', component: BrowserGameComponent },
-      { path: 'categoria', component: CategoriaComponent }
+      { path: 'home', component: HomeComponent }
+      
     ],
     canActivate: [AuthGuard]
+  },
+  { 
+    path: 'browserGame', 
+    component: BrowserGameComponent,
+    canActivate: [AuthGuard] 
+  },
+  { 
+    path: 'categoria', 
+    component: CategoriaComponent, 
+    canActivate: [AuthGuard] 
   },
   {
     path: '',
