@@ -28,13 +28,16 @@ import { LoginComponent } from './account/login/login.component';
 import { CreateAccountComponent } from './account/create-account/create-account.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 import { httpInterceptorProviders } from './http-interceptors';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { SafePipe } from './safe.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
+    SafePipe,
     BrowserGameComponent,
     HeaderComponent,
     FooterComponent,
@@ -65,7 +68,8 @@ import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
     MatSnackBarModule,
     MatCardModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatGridListModule
     
   ],
   providers: [
