@@ -12,6 +12,10 @@ export class BrowserGameService {
     return this.http.get<BrowserGame[]>(this.browserGameApiUrl);
   }
 
+  getBrowserGamesByCategoryId(id: string): Observable<BrowserGame[]> {
+    return this.http.get<BrowserGame[]>(`${this.browserGameApiUrl}?categoriaId=${id}`);
+  }
+
   createBrowserGames(browserGame: BrowserGame): Observable<BrowserGame> {
     return this.http.post<BrowserGame>(this.browserGameApiUrl, browserGame);
   }
