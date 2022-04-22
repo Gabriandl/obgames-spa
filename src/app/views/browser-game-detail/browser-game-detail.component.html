@@ -9,11 +9,15 @@
         <div class="item2">
           <h1> {{browserGame.nome}} </h1>
           <h3> {{browserGame.categoria.nome}} </h3>
-          <p> {{browserGame.descricao}} <br> Na OBG desde {{browserGame.dataCriacao}} </p>
+          <p> {{browserGame.descricao}}</p>
+            <span>
+                Na OBG desde {{browserGame.dataCriacao}}  <hr>
+          </span>
+       
         </div>
 
         <div class="item4">
-            <p>Avaliações de {{browserGame.nome}} </p>
+            <h2>Avaliações de {{browserGame.nome}} </h2>
             <div class="cards">
             <mat-list *ngFor="let avaliacao of avaliacoes">
                 <mat-list-item>  
@@ -26,6 +30,7 @@
                       <mat-card-subtitle>{{avaliacao.dataCriacao}}</mat-card-subtitle>
                     </mat-card-header>
                     <mat-card-content>
+                        <mat-star-rating [rating]="avaliacao.numEstrelas"  [starCount]="starCount" [color]="starColor"></mat-star-rating> 
                       <p>
                         {{avaliacao.comentario}}
                       </p>
@@ -47,20 +52,17 @@
         </div>
 
         <div class="item3">
-            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-            <div class="estrelas">
-            <input type="radio" id="cm_star-empty" name="fb" value="" checked/>
-            <label for="cm_star-1"><i class="fa"></i></label>
-            <input type="radio" id="cm_star-1" name="fb" value="1"/>
-            <label for="cm_star-2"><i class="fa"></i></label>
-            <input type="radio" id="cm_star-2" name="fb" value="2"/>
-            <label for="cm_star-3"><i class="fa"></i></label>
-            <input type="radio" id="cm_star-3" name="fb" value="3"/>
-            <label for="cm_star-4"><i class="fa"></i></label>
-            <input type="radio" id="cm_star-4" name="fb" value="4"/>
-            <label for="cm_star-5"><i class="fa"></i></label>
-            <input type="radio" id="cm_star-5" name="fb" value="5"/>
-            </div>
+           <!--  <div class="container-evaluate"> -->
+                <h2>Deixe sua avaliação: </h2>
+                <p>Nota </p>
+                <mat-star-rating [rating]="rating"  [starCount]="starCount" [color]="starColor" (ratingUpdated)="onRatingChanged($event)"></mat-star-rating>
+                <p>Comentario </p>
+                <mat-form-field appearance="fill">
+                    <mat-label>Digite aqui seu comentário </mat-label>
+                    <input matInput [(ngModel)]="comentario" name="comentario">
+                  </mat-form-field> 
+                  <button mat-button color="primary" (click)="avaliar()">Enviar</button>
+            <!-- </div> -->
         </div>
         
     </div>

@@ -30,11 +30,13 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { httpInterceptorProviders } from './http-interceptors';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { SafePipe } from './safe.pipe';
 import { BrowserGameDetailComponent } from './views/browser-game-detail/browser-game-detail.component';
+import { StarRatingComponent } from './shared/star-rating/star-rating.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,8 @@ import { BrowserGameDetailComponent } from './views/browser-game-detail/browser-
     AuthenticationComponent,
     LoginComponent,
     CreateAccountComponent,
-    BrowserGameDetailComponent
+    BrowserGameDetailComponent,
+    StarRatingComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +76,8 @@ import { BrowserGameDetailComponent } from './views/browser-game-detail/browser-
     MatDatepickerModule,
     MatNativeDateModule,
     MatGridListModule,
-    MatListModule
+    MatListModule,
+    MatTooltipModule
     
   ],
   providers: [

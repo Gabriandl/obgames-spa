@@ -4,6 +4,7 @@ import { Avaliacao } from 'src/app/models/Avaliacao';
 import { BrowserGame } from 'src/app/models/BrowserGame';
 import { AvaliacaoService } from 'src/app/services/avaliacao.service';
 import { BrowserGameService } from 'src/app/services/browserGame.service';
+import { StarRatingColor } from 'src/app/shared/star-rating/star-rating.component';
 
 @Component({
   selector: 'app-browser-game-detail',
@@ -15,6 +16,13 @@ export class BrowserGameDetailComponent implements OnInit {
   browserGameId!: string;
   browserGame!: BrowserGame;
   avaliacoes!: Avaliacao[];
+  comentario!: string;
+  
+  rating:number = 0;
+  starCount:number = 5;
+  starColor:StarRatingColor = StarRatingColor.primary;
+  starColorP:StarRatingColor = StarRatingColor.primary;
+  starColorW:StarRatingColor = StarRatingColor.warn;
 
   constructor(
     private route: ActivatedRoute,
@@ -35,6 +43,15 @@ export class BrowserGameDetailComponent implements OnInit {
         .subscribe((data: Avaliacao[]) => {
           this.avaliacoes = data;
         })
+  }
+
+  onRatingChanged(rating: number){
+    console.log(rating);
+    this.rating = rating;
+  }
+
+  avaliar(): void{
+    
   }
 
 }
