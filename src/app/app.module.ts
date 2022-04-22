@@ -35,7 +35,6 @@ import { httpInterceptorProviders } from './http-interceptors';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { SafePipe } from './safe.pipe';
 import { BrowserGameDetailComponent } from './views/browser-game-detail/browser-game-detail.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -74,8 +73,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatDatepickerModule,
     MatNativeDateModule,
     MatGridListModule,
-    MatListModule,
-    NgbModule
+    MatListModule
     
   ],
   providers: [
