@@ -29,10 +29,12 @@ import { CreateAccountComponent } from './account/create-account/create-account.
 import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatListModule } from '@angular/material/list';
 
 import { httpInterceptorProviders } from './http-interceptors';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { SafePipe } from './safe.pipe';
+import { BrowserGameDetailComponent } from './views/browser-game-detail/browser-game-detail.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { SafePipe } from './safe.pipe';
     HomeComponent,
     AuthenticationComponent,
     LoginComponent,
-    CreateAccountComponent
+    CreateAccountComponent,
+    BrowserGameDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +72,8 @@ import { SafePipe } from './safe.pipe';
     MatCardModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatGridListModule
+    MatGridListModule,
+    MatListModule
     
   ],
   providers: [

@@ -1,0 +1,88 @@
+.container{
+    padding: 20px 80px;
+    padding-bottom: 100px;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 300px 300px;
+    grid-gap: 10px;
+    padding: 10px;
+  }
+  
+  .item1 {
+  
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+  
+  .item2 {
+  
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  .item3 {
+  
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+  .item4 {
+  
+    grid-row-start: 1;
+    grid-row-end: 3;
+    overflow-y: scroll;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-gap: 10px;
+    padding: 10px;
+  }
+  
+  .example-card {
+    margin: auto;
+    width: 100%;
+    position: relative;
+    /* max-width: 400px; */
+    margin-bottom: 8px;
+  }
+
+  .button-container{
+      display: inline-flex;
+  }
+
+  .mat-list-base .mat-list-item, .mat-list-base .mat-list-option {
+    height: auto;
+}
+
+/* config para estrelas */
+
+.estrelas input[type=radio] {
+    display: none;
+  }
+  .estrelas label i.fa{
+    font-size: 2.5em
+  }
+  .estrelas label i.fa:before {
+    content:'\f005';
+    color: #FC0;
+  }
+  .estrelas input[type=radio]:checked ~ label i.fa:before {
+    color: #CCC;
+  }
+
+  .estrelas-list input[type=radio] {
+    display: none;
+  }
+  .estrelas-list label i.fa{
+    font-size: 1.5em
+  }
+  .estrelas-list label i.fa:before {
+    content:'\f005';
+    color: #FC0;
+  }
+  .estrelas-list input[type=radio]:checked ~ label i.fa:before {
+    color: #CCC;
+  }

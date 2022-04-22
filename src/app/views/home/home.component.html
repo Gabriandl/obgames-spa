@@ -1,4 +1,4 @@
-<form class="example-form">
+<div class="container"><form class="example-form">
     <mat-form-field appearance="fill">
         <mat-label>Digite o nome do Browser Game: </mat-label>
         <input matInput [(ngModel)]="nome" name="nome">
@@ -12,6 +12,9 @@
       </mat-form-field>
       <button mat-button color="primary" (click)="filter()" >Filtrar</button>
   </form>
+  <p>
+    {{browserGamesSize}} Browser Games encontrados !
+</p>
 <mat-grid-list [cols]="breakpoint" rowHeight="30em" (window:resize)="onResize($event)" gutterSize="15px">
   <mat-grid-tile *ngFor="let browserGame of browserGames">
     <mat-card class="example-card">
@@ -27,15 +30,15 @@
       <img  mat-card-image src="{{browserGame.urlImagem}}" alt="{{browserGame.nome}}">
       <mat-card-content>
         <p>
-
           {{browserGame.descricao}}
         </p>
       </mat-card-content>
       <mat-card-footer>Na OBG desde {{browserGame.dataCriacao}}</mat-card-footer>
       <mat-card-actions>
         <button mat-button color="primary"><a href="{{browserGame.urlJogo}}">Jogar</a></button>
-        <button mat-button color="primary">Avaliar</button>
+        <button mat-button color="primary" ><a routerLink="/browserGame/{{browserGame.id}}" >Ver Detalhes</a></button>
       </mat-card-actions>
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>
+</div>

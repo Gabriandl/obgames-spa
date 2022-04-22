@@ -16,6 +16,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class HomeComponent implements OnInit {
   breakpoint!: number
   browserGames!: BrowserGame[]
+  browserGamesSize!: number
   categorias!: Categoria[];
   selectedCategoria = 'Todas'
   nome = ''
@@ -33,6 +34,7 @@ export class HomeComponent implements OnInit {
     this.browserGameService.getBrowserGames()
         .subscribe((data: BrowserGame[]) => {
           this.browserGames = data;
+          this.browserGamesSize = this.browserGames.length;
         })
     this.categoriaService.getCategorias()
         .subscribe((categorias: Categoria[]) => {
@@ -49,21 +51,25 @@ export class HomeComponent implements OnInit {
       this.browserGameService.getBrowserGames()
         .subscribe((data: BrowserGame[]) => {
           this.browserGames = data;
+          this.browserGamesSize = this.browserGames.length;
         })
     } else if (!this.nome && this.selectedCategoria != "Todas"){
       this.browserGameService.getBrowserGamesByCategoryId(this.selectedCategoria)
       .subscribe((data: BrowserGame[]) => {
         this.browserGames = data;
+        this.browserGamesSize = this.browserGames.length;
       })
     } else if (this.nome && this.selectedCategoria != "Todas"){
       this.browserGameService.getBrowserGamesByCategoryId(this.selectedCategoria)
       .subscribe((data: BrowserGame[]) => {
         this.browserGames = data.filter(browserGame => (browserGame.nome.toLowerCase().includes(this.nome)));
+        this.browserGamesSize = this.browserGames.length;
       })
     } else {
       this.browserGameService.getBrowserGames()
       .subscribe((data: BrowserGame[]) => {
         this.browserGames = data.filter(browserGame => (browserGame.nome.toLowerCase().includes(this.nome)));
+        this.browserGamesSize = this.browserGames.length;
       })
     }
   }
