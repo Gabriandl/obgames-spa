@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="container"><form class="example-form">
     <mat-form-field appearance="fill">
         <mat-label>Digite o nome do Browser Game: </mat-label>
@@ -15,7 +16,7 @@
   <p>
     {{browserGamesSize}} Browser Games encontrados !
 </p>
-<mat-grid-list [cols]="breakpoint" rowHeight="30em" (window:resize)="onResize($event)" gutterSize="15px">
+<mat-grid-list [cols]="breakpoint" rowHeight="31em" (window:resize)="onResize($event)" gutterSize="15px">
   <mat-grid-tile *ngFor="let browserGame of browserGames">
     <mat-card class="example-card">
       <mat-card-header>
@@ -29,6 +30,7 @@
       </mat-card-header>
       <img  mat-card-image src="{{browserGame.urlImagem}}" alt="{{browserGame.nome}}">
       <mat-card-content>
+        <mat-star-rating  [rating]="browserGame.avgEstrelas"  [starCount]="starCount" [color]="starColor"></mat-star-rating> <p> ({{browserGame.qtdAvaliacoes}})</p>
         <p>
           {{browserGame.descricao}}
         </p>

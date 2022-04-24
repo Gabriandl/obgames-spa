@@ -11,7 +11,7 @@
   }
   
   .item1 {
-        display: inherit;
+    display: inherit;
     grid-row-start: 1;
     grid-row-end: 3;
   }
@@ -73,7 +73,7 @@
    }
 
   .cards {
-    display: grid;
+    /* display: grid; */
     grid-template-columns: auto;
     grid-template-rows: auto;
     grid-gap: 10px;

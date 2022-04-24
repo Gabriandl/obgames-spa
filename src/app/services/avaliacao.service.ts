@@ -20,7 +20,7 @@ export class AvaliacaoService {
     return this.http.get<Avaliacao[]>(`${this.avaliacaoApiUrl}?browserGameId=${id}`);
   }
 
-  createAvaliacoes(avaliacao: Avaliacao): Observable<Avaliacao> {
+  createAvaliacao(avaliacao: Avaliacao): Observable<Avaliacao> {
     return this.http.post<Avaliacao>(this.avaliacaoApiUrl, avaliacao);
   }
 
@@ -28,12 +28,12 @@ export class AvaliacaoService {
     return this.http.put<Avaliacao>(`${this.avaliacaoApiUrl}/${avaliacao.id}`, avaliacao);
   }
 
-  addCurtida(id: string, usuarioId: string): any{
-    return this.http.put<Avaliacao>(`${this.avaliacaoApiUrl}/${id}/curtida?usuarioId=${usuarioId}`,'');
+  addCurtida(id: string | undefined, usuarioId: string | null): any{
+    return this.http.put<Avaliacao>(`${this.avaliacaoApiUrl}/${id}/curtidas?usuarioId=${usuarioId}`,'');
   }
 
-  deleteCurtida(id: string, usuarioId: string): any{
-    return this.http.delete<Avaliacao>(`${this.avaliacaoApiUrl}/${id}/curtida?usuarioId=${usuarioId}`);
+  deleteCurtida(id: string | undefined, usuarioId: string | null): any{
+    return this.http.delete<Avaliacao>(`${this.avaliacaoApiUrl}/${id}/curtidas?usuarioId=${usuarioId}`);
   }
 
   deleteAvaliacao(id: string): Observable<any> {

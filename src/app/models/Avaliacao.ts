@@ -5,8 +5,8 @@ export interface Avaliacao {
     id?: string
     numEstrelas: number;
     comentario: string;
-    curtidas: object;
-    curtidasSize: number;
+    curtidas?: Array<Usuario>;
+    curtidasSize?: number;
     timestamp?: Date;
     dataCriacao?: string;
     browserGame: BrowserGame;
