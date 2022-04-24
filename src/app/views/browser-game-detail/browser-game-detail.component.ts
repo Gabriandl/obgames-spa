@@ -15,11 +15,11 @@ import { StarRatingColor } from 'src/app/shared/star-rating/star-rating.componen
 })
 export class BrowserGameDetailComponent implements OnInit {
   userId = window.localStorage.getItem("userId") || "string-not-null"
-  usuario:Usuario = {id: this.userId};
+  usuario:Usuario = {id: this.userId, dataNasc: ""};
   browserGameId!: string;
   browserGame!: BrowserGame;
   avaliacoes!: Avaliacao[];
-  avaliacao: Avaliacao = { numEstrelas: 0, comentario: '', usuario: {},browserGame: {id:'', nome:'',avgEstrelas:0, categoria: {nome:''}}};
+  avaliacao: Avaliacao = { numEstrelas: 0, comentario: '', usuario: {dataNasc: ""},browserGame: {id:'', nome:'',avgEstrelas:0, categoria: {nome:''}}};
   comentario!: string;
   alreadyEvaluated!: boolean
   alreadyLiked: Array<string | undefined> = []

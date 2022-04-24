@@ -4,12 +4,14 @@
       
 
       <mat-menu #menu="matMenu">
+        <a routerLink="/home" mat-menu-item>Home</a>
         <a *ngIf="isAdmin" routerLink="/browserGame" mat-menu-item>Browser Games</a>
-        <a *ngIf="isAdmin" routerLink="/categoria" mat-menu-item>Categoria</a>
+        <a *ngIf="isAdmin" routerLink="/categoria" mat-menu-item>Categorias</a>
+        <a routerLink="/profile" mat-menu-item>Meu Perfil</a>
         <a (click)="logout()"  mat-menu-item>Sair</a>
       </mat-menu>
 
-      <span><a class="home-button" routerLink="/home" mat-menu-item>Only Browser Games</a></span>
+      <span>Only Browser Games</span>
 
       <span class="example-spacer"></span>
 
