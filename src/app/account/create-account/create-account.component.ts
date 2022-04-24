@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Usuario } from 'src/app/models/Usuario';
 import { AccountService } from 'src/app/services/account.service';
 import { NotifierService } from 'src/app/services/notifier.service';
@@ -9,18 +10,12 @@ import { NotifierService } from 'src/app/services/notifier.service';
   styleUrls: ['./create-account.component.scss']
 })
 export class CreateAccountComponent implements OnInit {
-   usuario = {
-    nomeCompleto: '',
-    username: '',
-    senha: '',
-    dataNasc: '',
-    estado: '',
-    pais: '',
-   }
+   usuario: Usuario = {dataNasc: "" }
 
   constructor(
     public accountService: AccountService,
-    public notifierService: NotifierService
+    public notifierService: NotifierService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -30,7 +25,8 @@ export class CreateAccountComponent implements OnInit {
     this.accountService.createAccount(this.usuario)
     .subscribe({
       next: n => { 
-        this.notifierService.showSuccesNotification(n);
+        this.notifierService.showSuccesNotification(n.message);
+        this.router.navigate(['/login']);
       
       },
       error: e => {
