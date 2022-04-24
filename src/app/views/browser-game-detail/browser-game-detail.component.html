@@ -1,0 +1,82 @@
+<app-header></app-header>
+<div class="container">
+    <div class="grid-container">
+        <div class="item1">
+            <img src="{{browserGame.urlImagem}}" alt="{{browserGame.nome}}">
+            <button mat-button color="primary"><a href="{{browserGame.urlJogo}}">Jogar</a></button>
+            <button mat-button color="primary" ><a href="{{browserGame.urlVideo}}">Ver Video</a></button>
+        </div>
+
+        <div class="item2">
+          <h1> {{browserGame.nome}} </h1>
+          <h3> {{browserGame.categoria.nome}} </h3>
+          <p> {{browserGame.descricao}}</p>
+            <span>
+                Na OBG desde {{browserGame.dataCriacao}}  <hr>
+          </span>
+       
+        </div>
+
+        <div class="item4">
+            <h2>Avaliações de {{browserGame.nome}} </h2>
+            <div class="cards">
+            <mat-list *ngFor="let avaliacao of avaliacoes">
+                <mat-list-item>  
+                
+                  <mat-card class="example-card">
+                    <mat-card-header>
+                      <mat-card-title>{{avaliacao.usuario.nomeCompleto}}
+                          
+                      </mat-card-title>
+                      <mat-card-subtitle>{{avaliacao.dataCriacao}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <mat-star-rating [rating]="avaliacao.numEstrelas"  [starCount]="starCount" [color]="starColor"></mat-star-rating> 
+                      <p>
+                        {{avaliacao.comentario}}
+                      </p>
+                    </mat-card-content>
+
+                   <mat-card-footer>
+                    <div class="button-container">
+                      <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet"/>
+                      <button mat-icon-button *ngIf="!alreadyLiked.includes(avaliacao.id)" (click)="curtir(avaliacao.id)" color="primary"> <mat-icon fontSet="material-icons-outlined" >thumb_up</mat-icon>  </button> 
+                      <button mat-icon-button *ngIf="alreadyLiked.includes(avaliacao.id)" (click)="descurtir(avaliacao.id)" color="primary"> <mat-icon>thumb_up</mat-icon> </button> 
+                      <p class="numero-curtidas"> ({{avaliacao.curtidasSize}}) </p>
+                    </div>
+                    </mat-card-footer>
+                    
+                   
+                  </mat-card>
+                </mat-list-item>
+            </mat-list>
+        </div>
+        </div>
+
+        <div class="item3">
+            <div *ngIf="!alreadyEvaluated" class="container-evaluate">
+                <h2>Deixe sua avaliação: </h2>
+                <p>Nota </p>
+                <mat-star-rating [rating]="avaliacao.numEstrelas"  [starCount]="starCount" [color]="starColor" (ratingUpdated)="onRatingChanged($event)"></mat-star-rating>
+                <p>Comentario </p>
+                <mat-form-field appearance="fill">
+                    <mat-label>Digite aqui seu comentário </mat-label>
+                    <input matInput [(ngModel)]="avaliacao.comentario" name="comentario">
+                  </mat-form-field> 
+                  <button mat-button color="primary" (click)="avaliar()">Enviar</button>
+            </div>
+            <div *ngIf="alreadyEvaluated" class="container-evaluate">
+              <h2>Aqui está sua avaliação: </h2>
+              <p>Nota </p>
+              <mat-star-rating [rating]="avaliacao.numEstrelas"  [starCount]="starCount" [color]="starColor" (ratingUpdated)="onRatingChanged($event)"></mat-star-rating>
+              <p>Comentario </p>
+              <mat-form-field appearance="fill">
+                  <mat-label>Digite aqui seu comentário </mat-label>
+                  <input matInput [(ngModel)]="avaliacao.comentario" name="comentario">
+                </mat-form-field> 
+                <button mat-button color="primary" (click)="editarAvaliacao()">Salvar</button>
+          </div>
+        </div>
+        
+    </div>
+</div>
