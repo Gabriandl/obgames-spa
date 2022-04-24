@@ -9,6 +9,7 @@ import { BrowserGameDetailComponent } from './views/browser-game-detail/browser-
 import { BrowserGameComponent } from './views/browserGame/browserGame.component';
 import { CategoriaComponent } from './views/categoria/categoria.component';
 import { HomeComponent } from './views/home/home.component';
+import { ProfileComponent } from './views/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,11 @@ const routes: Routes = [
       
     ],
     canActivate: [AuthGuard]
+  },
+  { 
+    path: 'profile', 
+    component: ProfileComponent,
+    canActivate: [AuthGuard] 
   },
   { 
     path: 'browserGame', 

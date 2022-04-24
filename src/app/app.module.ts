@@ -37,6 +37,7 @@ import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { SafePipe } from './safe.pipe';
 import { BrowserGameDetailComponent } from './views/browser-game-detail/browser-game-detail.component';
 import { StarRatingComponent } from './shared/star-rating/star-rating.component';
+import { ProfileComponent } from './views/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { StarRatingComponent } from './shared/star-rating/star-rating.component'
     LoginComponent,
     CreateAccountComponent,
     BrowserGameDetailComponent,
-    StarRatingComponent
+    StarRatingComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -90,12 +90,18 @@
 
   .button-container{
       display: inline-flex;
+      text-align: center;
+
   }
 
   .mat-list-base .mat-list-item, .mat-list-base .mat-list-option {
     height: auto;
 }
 
+mat-card-actions {
+  display: inline-flex;
+      text-align: center;
+}
 /* config para estrelas */
 
 .estrelas input[type=radio] {
