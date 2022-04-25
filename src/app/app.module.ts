@@ -38,6 +38,7 @@ import { SafePipe } from './safe.pipe';
 import { BrowserGameDetailComponent } from './views/browser-game-detail/browser-game-detail.component';
 import { StarRatingComponent } from './shared/star-rating/star-rating.component';
 import { ProfileComponent } from './views/profile/profile.component';
+import { RecomendacaoComponent } from './views/recomendacao/recomendacao.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { ProfileComponent } from './views/profile/profile.component';
     CreateAccountComponent,
     BrowserGameDetailComponent,
     StarRatingComponent,
-    ProfileComponent
+    ProfileComponent,
+    RecomendacaoComponent
   ],
   imports: [
     BrowserModule,
