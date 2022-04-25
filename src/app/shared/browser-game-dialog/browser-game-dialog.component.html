@@ -7,7 +7,7 @@
   </mat-form-field>-->
   <mat-form-field appearance="fill">
     <mat-label>Nome</mat-label>
-    <input matInput [(ngModel)]="data.nome">
+    <input matInput maxlength="50" [(ngModel)]="data.nome">
   </mat-form-field>
  <mat-form-field appearance="fill">
     <mat-label>Categoria</mat-label>
@@ -17,19 +17,19 @@
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>Descricao</mat-label>
-    <input matInput [(ngModel)]="data.descricao">
+    <input matInput maxlength="255" [(ngModel)]="data.descricao">
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>URL Imagem</mat-label>
-    <input matInput [(ngModel)]="data.urlImagem">
+    <input matInput maxlength="100" [(ngModel)]="data.urlImagem">
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>URL Video</mat-label>
-    <input matInput [(ngModel)]="data.urlVideo">
+    <input matInput maxlength="100" [(ngModel)]="data.urlVideo">
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>URL Jogo</mat-label>
-    <input matInput [(ngModel)]="data.urlJogo">
+    <input matInput maxlength="100" [(ngModel)]="data.urlJogo">
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
