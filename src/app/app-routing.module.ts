@@ -10,6 +10,7 @@ import { BrowserGameComponent } from './views/browserGame/browserGame.component'
 import { CategoriaComponent } from './views/categoria/categoria.component';
 import { HomeComponent } from './views/home/home.component';
 import { ProfileComponent } from './views/profile/profile.component';
+import { RelatorioComponent } from './views/relatorio/relatorio.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,11 @@ const routes: Routes = [
   { 
     path: 'profile', 
     component: ProfileComponent,
+    canActivate: [AuthGuard] 
+  },
+  { 
+    path: 'relatorio', 
+    component: RelatorioComponent,
     canActivate: [AuthGuard] 
   },
   { 

@@ -39,6 +39,7 @@ import { BrowserGameDetailComponent } from './views/browser-game-detail/browser-
 import { StarRatingComponent } from './shared/star-rating/star-rating.component';
 import { ProfileComponent } from './views/profile/profile.component';
 import { RecomendacaoComponent } from './views/recomendacao/recomendacao.component';
+import { RelatorioComponent } from './views/relatorio/relatorio.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { RecomendacaoComponent } from './views/recomendacao/recomendacao.compone
     BrowserGameDetailComponent,
     StarRatingComponent,
     ProfileComponent,
-    RecomendacaoComponent
+    RecomendacaoComponent,
+    RelatorioComponent
   ],
   imports: [
     BrowserModule,
