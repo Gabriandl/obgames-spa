@@ -7,6 +7,7 @@
         <a routerLink="/home" mat-menu-item>Home</a>
         <a *ngIf="isAdmin" routerLink="/browserGame" mat-menu-item>Browser Games</a>
         <a *ngIf="isAdmin" routerLink="/categoria" mat-menu-item>Categorias</a>
+        <a *ngIf="isAdmin" routerLink="/relatorio" mat-menu-item>Relatórios</a>
         <a routerLink="/profile" mat-menu-item>Meu Perfil</a>
         <a (click)="logout()"  mat-menu-item>Sair</a>
       </mat-menu>

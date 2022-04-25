@@ -1,28 +1,32 @@
 <app-header></app-header>
 <div class="container"><form class="example-form">
     <mat-form-field appearance="fill">
-        <mat-label>Digite o nome do Browser Game: </mat-label>
-        <input matInput [(ngModel)]="nome" name="nome">
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Selecione a categoria: </mat-label>
-        <mat-select  [(ngModel)]="selectedCategoria" name="categoria"> 
-            <mat-option value="Todas"  >Todas</mat-option>
-          <mat-option *ngFor="let categoria of categorias" [value]="categoria.id" > {{categoria.nome}} </mat-option>
+        <mat-label>Selecione uma opção de relatório:  </mat-label>
+        <mat-select  [(ngModel)]="selectedOption" name="option"> 
+          <mat-option *ngFor="let option of selectOption" [value]="option.value" > {{option.description}} </mat-option>
           </mat-select>
       </mat-form-field>
-      <button mat-button color="primary" (click)="filter()" >Filtrar</button>
+      <mat-form-field appearance="fill" >
+        <mat-label>Data Inicial</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="dataInicial" placeholder="Choose a date" name="dataInicial" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Data Final</mat-label>
+        <input matInput [matDatepicker]="picker2" [(ngModel)]="dataFinal" placeholder="Choose a date" name="dataFinal" required>
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+      <button mat-button color="primary" (click)="buscar()" >Buscar</button>
   </form>
-  <p>
+ <!--  <p>
     {{browserGamesSize}} Browser Games encontrados !
 </p>
 <mat-grid-list [cols]="breakpoint" rowHeight="31em" (window:resize)="onResize($event)" gutterSize="15px">
   <mat-grid-tile *ngFor="let browserGame of browserGames">
     <mat-card class="example-card">
       <mat-card-header>
-        <!--<div mat-card-avatar class="example-header-image"> <img mat-card-image src="{{browserGame.urlImagem}}"
-            alt="{{browserGame.nome}}">
-        </div> -->
         <mat-card-title>{{browserGame.nome}}
             
         </mat-card-title>
@@ -42,7 +46,6 @@
       </mat-card-actions>
     </mat-card>
   </mat-grid-tile>
-</mat-grid-list>
-<app-recomendacao></app-recomendacao>
+</mat-grid-list> -->
 </div>
 
