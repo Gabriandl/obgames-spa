@@ -17,6 +17,7 @@ export class RelatorioComponent implements OnInit {
   selectedOption!: string;
   dataInicial!: Date;
   dataFinal!: Date;
+  relatorio: Relatorio = {};
 
 
   constructor(
@@ -27,12 +28,12 @@ export class RelatorioComponent implements OnInit {
   }
 
   buscar(): void {
-    console.log(this.dataInicial.getTime());
-    console.log(this.dataFinal.getTime());
+    console.log(this.dataInicial.getTime() / 1000);
+    console.log(this.dataFinal.getTime() / 1000);
 
-    this.relatorioService.getRelatorio(this.selectedOption, this.dataInicial.getTime().toString(), this.dataFinal.getTime().toString())
+    this.relatorioService.getRelatorio(this.selectedOption, (this.dataInicial.getTime() / 1000), (this.dataFinal.getTime() / 1000))
     .subscribe((data: Relatorio) => {
-      console.log(JSON.stringify(data));
+      this.relatorio = data;
     })
   }
 

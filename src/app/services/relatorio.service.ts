@@ -11,7 +11,7 @@ export class RelatorioService {
   constructor(private http: HttpClient) { }
 
 
-  getRelatorio(tipoRelatorio: string, dataInicial: string, dataFinal: string): Observable<Relatorio> {
+  getRelatorio(tipoRelatorio: string, dataInicial: number, dataFinal: number): Observable<Relatorio> {
     return this.http.get<Relatorio>(`${this.relatorioApiUrl}?tipoRelatorio=${tipoRelatorio}&dataInicial=${dataInicial}&dataFinal=${dataFinal}`);
   }
 
