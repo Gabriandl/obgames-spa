@@ -1,8 +1,11 @@
 <app-header></app-header>
-<div class="container"><form class="example-form">
+
+<div class="container">
+    <form class="example-form" #form="ngForm">
+    <h2> Para obter o relatório, basta preencher o formulario abaixo: </h2>
     <mat-form-field appearance="fill">
         <mat-label>Selecione uma opção de relatório:  </mat-label>
-        <mat-select  [(ngModel)]="selectedOption" name="option"> 
+        <mat-select  [(ngModel)]="selectedOption" name="option" required> 
           <mat-option *ngFor="let option of selectOption" [value]="option.value" > {{option.description}} </mat-option>
           </mat-select>
       </mat-form-field>
@@ -18,34 +21,59 @@
         <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
         <mat-datepicker #picker2></mat-datepicker>
       </mat-form-field>
-      <button mat-button color="primary" (click)="buscar()" >Buscar</button>
+      <button mat-button color="primary" [disabled]="form.invalid" (click)="buscar()" >Buscar</button>
   </form>
- <!--  <p>
-    {{browserGamesSize}} Browser Games encontrados !
-</p>
-<mat-grid-list [cols]="breakpoint" rowHeight="31em" (window:resize)="onResize($event)" gutterSize="15px">
-  <mat-grid-tile *ngFor="let browserGame of browserGames">
+
+<mat-grid-list *ngIf="selectedOption == '2'" [cols]="5" rowHeight="15em" gutterSize="15px">
+  <mat-grid-tile *ngFor="let usuario of relatorio.usuarios">
     <mat-card class="example-card">
       <mat-card-header>
-        <mat-card-title>{{browserGame.nome}}
+        <mat-card-title>{{usuario.nomeCompleto}}
             
         </mat-card-title>
-        <mat-card-subtitle>{{browserGame.categoria.nome}}</mat-card-subtitle>
+        <mat-card-subtitle>{{usuario.username}}</mat-card-subtitle>
       </mat-card-header>
-      <img  mat-card-image src="{{browserGame.urlImagem}}" alt="{{browserGame.nome}}">
       <mat-card-content>
-        <mat-star-rating  [rating]="browserGame.avgEstrelas"  [starCount]="starCount" [color]="starColor"></mat-star-rating> <p> ({{browserGame.qtdAvaliacoes}})</p>
         <p>
-          {{browserGame.descricao}}
+          {{usuario.estado}} - {{usuario.pais}}
         </p>
       </mat-card-content>
-      <mat-card-footer>Na OBG desde {{browserGame.dataCriacao}}</mat-card-footer>
-      <mat-card-actions>
-        <button mat-button color="primary"><a href="{{browserGame.urlJogo}}">Jogar</a></button>
-        <button mat-button color="primary" ><a routerLink="/browserGame/{{browserGame.id}}" >Ver Detalhes</a></button>
-      </mat-card-actions>
+      <mat-card-footer>Na OBG desde {{usuario.dataCriacao}}</mat-card-footer>
     </mat-card>
   </mat-grid-tile>
-</mat-grid-list> -->
+</mat-grid-list> 
+
+<mat-grid-list *ngIf="selectedOption == '4'" [cols]="3" rowHeight="5em" gutterSize="15px">
+    <mat-grid-tile *ngFor="let categoria of relatorio.categorias">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>{{categoria.nome}}
+              
+          </mat-card-title>
+          <mat-card-subtitle>{{categoria.descricao}}</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list> 
+
+
+<mat-grid-list *ngIf="selectedOption == '1' || selectedOption == '3'" [cols]="3" rowHeight="15em" gutterSize="15px">
+    <mat-grid-tile *ngFor="let browserGame of relatorio.browserGames">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>{{browserGame.nome}}
+              
+          </mat-card-title>
+          <mat-card-subtitle>{{browserGame.categoria.nome}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            {{browserGame.descricao}} 
+          </p>
+        </mat-card-content>
+        <mat-card-footer>Na OBG desde {{browserGame.dataCriacao}}</mat-card-footer>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list> 
 </div>
 

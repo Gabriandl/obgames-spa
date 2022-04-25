@@ -1,12 +1,13 @@
 <app-header></app-header>
-<div class="container"><form class="example-form">
+<div class="container">
+  <form class="example-form">
     <mat-form-field appearance="fill">
         <mat-label>Digite o nome do Browser Game: </mat-label>
-        <input matInput [(ngModel)]="nome" name="nome">
+        <input matInput maxlength="50" [(ngModel)]="nome" name="nome" required>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Selecione a categoria: </mat-label>
-        <mat-select  [(ngModel)]="selectedCategoria" name="categoria"> 
+        <mat-select  [(ngModel)]="selectedCategoria" name="categoria" > 
             <mat-option value="Todas"  >Todas</mat-option>
           <mat-option *ngFor="let categoria of categorias" [value]="categoria.id" > {{categoria.nome}} </mat-option>
           </mat-select>

@@ -8,23 +8,23 @@
     
         <mat-form-field class="full-width">
           <mat-label>Nome Completo</mat-label>
-          <input matInput [(ngModel)]="usuario.nomeCompleto" placeholder="Gabriel" name="nomeCompleto" required>
+          <input matInput maxlength="50" [(ngModel)]="usuario.nomeCompleto" placeholder="Gabriel" name="nomeCompleto" required>
         </mat-form-field>
         <mat-form-field class="full-width">
           <mat-label>Username</mat-label>
-          <input matInput [(ngModel)]="usuario.username" placeholder="@gabriel" name="username" required>
+          <input matInput maxlength="50" [(ngModel)]="usuario.username" placeholder="@gabriel" name="username" required>
         </mat-form-field>
         <mat-form-field class="full-width">
           <mat-label>Senha</mat-label>
-          <input matInput [(ngModel)]="usuario.senha" placeholder="xxxxx" name="senha" type="password" required>
+          <input matInput maxlength="50" [(ngModel)]="usuario.senha" placeholder="xxxxx" name="senha" type="password" required>
         </mat-form-field>
         <mat-form-field class="full-width">
           <mat-label>Estado</mat-label>
-          <input matInput [(ngModel)]="usuario.estado" placeholder="SP" name="estado" required>
+          <input matInput maxlength="2" [(ngModel)]="usuario.estado" placeholder="SP" name="estado" required>
         </mat-form-field>
         <mat-form-field class="full-width">
           <mat-label>País</mat-label>
-          <input matInput [(ngModel)]="usuario.pais" placeholder="Brasil" name="pais" required>
+          <input matInput maxlength="50" [(ngModel)]="usuario.pais" placeholder="Brasil" name="pais" required>
         </mat-form-field>
         <mat-form-field>
           <mat-label>Data de Nascimento</mat-label>
