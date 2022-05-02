@@ -1,5 +1,6 @@
-<h1 *ngIf="!isChange" mat-dialog-title>Create Browser Game</h1>
-<h1 *ngIf="isChange" mat-dialog-title>Edit Browser Game</h1>
+<div class='container'>
+<h1 *ngIf="!isChange" mat-dialog-title>Criar Browser Game</h1>
+<h1 *ngIf="isChange" mat-dialog-title>Editar Browser Game</h1>
 <div mat-dialog-content>
   <!--<mat-form-field *ngIf="isChange" appearance="fill">
     <mat-label *ngIf="isChange" >Id</mat-label>
@@ -21,19 +22,20 @@
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>URL Imagem</mat-label>
-    <input matInput maxlength="100" [(ngModel)]="data.urlImagem">
+    <input matInput maxlength="255" [(ngModel)]="data.urlImagem">
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>URL Video</mat-label>
-    <input matInput maxlength="100" [(ngModel)]="data.urlVideo">
+    <input matInput maxlength="255" [(ngModel)]="data.urlVideo">
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>URL Jogo</mat-label>
-    <input matInput maxlength="100" [(ngModel)]="data.urlJogo">
+    <input matInput maxlength="255" [(ngModel)]="data.urlJogo">
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onCancel()">Cancelar</button>
-  <button mat-button *ngIf="!isChange" (click)="sendBrowserGameData(data,selectedCategoria.value)" cdkFocusInitial>Create</button>
-  <button mat-button *ngIf="isChange" (click)="sendBrowserGameData(data,selectedCategoria.value)" cdkFocusInitial>Edit</button>
+  <button mat-button *ngIf="!isChange" (click)="sendBrowserGameData(data,selectedCategoria.value)" cdkFocusInitial>Criar</button>
+  <button mat-button *ngIf="isChange" (click)="sendBrowserGameData(data,selectedCategoria.value)" cdkFocusInitial>Editar</button>
+</div>
 </div>

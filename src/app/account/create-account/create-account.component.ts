@@ -25,13 +25,13 @@ export class CreateAccountComponent implements OnInit {
     this.accountService.createAccount(this.usuario)
     .subscribe({
       next: n => { 
-        this.notifierService.showSuccesNotification(n.message);
+        this.notifierService.showSuccesNotification(`Usuario ${this.usuario.nomeCompleto} criado!`);
         this.router.navigate(['/login']);
       
       },
       error: e => {
         console.log("Gabriel debug: "+ JSON.stringify(e));
-        this.notifierService.showAllertNotification(e.message);
+        this.notifierService.showAllertNotification(`Ocorreu um erro durante a criação do seu cadastro, tente novamente!`);
       }
     })
   }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Relatorio } from 'src/app/models/Relatorio';
+import { NotifierService } from 'src/app/services/notifier.service';
 import { RelatorioService } from 'src/app/services/relatorio.service';
 
 @Component({
@@ -21,7 +22,8 @@ export class RelatorioComponent implements OnInit {
 
 
   constructor(
-    private relatorioService: RelatorioService
+    private relatorioService: RelatorioService,
+    private notifierService: NotifierService
   ) { }
 
   ngOnInit(): void {
@@ -30,10 +32,18 @@ export class RelatorioComponent implements OnInit {
   buscar(): void {
     console.log(this.dataInicial.getTime() / 1000);
     console.log(this.dataFinal.getTime() / 1000);
+    this.notifierService.showSuccesNotification(`Aguarde, estamos processando sua solicitação.`);
 
     this.relatorioService.getRelatorio(this.selectedOption, (this.dataInicial.getTime() / 1000), (this.dataFinal.getTime() / 1000))
-    .subscribe((data: Relatorio) => {
-      this.relatorio = data;
+    .subscribe({
+      next: data => { 
+        this.relatorio = data;
+        this.notifierService.showSuccesNotification(`Relatório processado!`);
+      
+      },
+      error: e => {
+        this.notifierService.showAllertNotification(`Ocorreu um erro durante o processamento do seu relatório, tente novamente!`);
+      }
     })
   }
 

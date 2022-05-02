@@ -4,6 +4,7 @@ import { MatTable } from '@angular/material/table';
 import { elementAt } from 'rxjs';
 import { BrowserGame } from 'src/app/models/BrowserGame';
 import { BrowserGameService } from 'src/app/services/browserGame.service';
+import { NotifierService } from 'src/app/services/notifier.service';
 import { BrowserGameDialogComponent } from 'src/app/shared/browser-game-dialog/browser-game-dialog.component';
 
 @Component({
@@ -21,7 +22,8 @@ export class BrowserGameComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-    public browserGameService: BrowserGameService
+    public browserGameService: BrowserGameService,
+    private notifierService: NotifierService
     ) {
       
     }
@@ -63,12 +65,14 @@ export class BrowserGameComponent implements OnInit {
         if (this.dataSource.map(b => b.id).includes(result.id)){
           this.browserGameService.editBrowserGame(result)
           .subscribe((data: BrowserGame) => {
+            this.notifierService.showSuccesNotification(`Browser Game editado!`)
             this.ngOnInit();
             this.table.renderRows();
           });
         } else {
           this.browserGameService.createBrowserGames(result)
             .subscribe((data: BrowserGame) => {
+              this.notifierService.showSuccesNotification(`Browser Game criado!`)
               this.ngOnInit();
               this.table.renderRows();
             })
@@ -84,6 +88,7 @@ export class BrowserGameComponent implements OnInit {
   deleteBrowserGame(id: string): void {
     this.browserGameService.deleteBrowserGame(id)
     .subscribe((data: any) => {
+      this.notifierService.showSuccesNotification(`Browser Game deletado!`)
       this.ngOnInit();
       this.table.renderRows();
     })
