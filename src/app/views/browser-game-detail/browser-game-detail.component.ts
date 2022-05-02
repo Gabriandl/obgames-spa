@@ -5,6 +5,7 @@ import { BrowserGame } from 'src/app/models/BrowserGame';
 import { Usuario } from 'src/app/models/Usuario';
 import { AvaliacaoService } from 'src/app/services/avaliacao.service';
 import { BrowserGameService } from 'src/app/services/browserGame.service';
+import { NotifierService } from 'src/app/services/notifier.service';
 import { StarRatingColor } from 'src/app/shared/star-rating/star-rating.component';
 
 @Component({
@@ -33,7 +34,8 @@ export class BrowserGameDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private browserGameService: BrowserGameService,
-    private avaliacaoService: AvaliacaoService
+    private avaliacaoService: AvaliacaoService,
+    private notifierService: NotifierService
     ) { 
     this.route.params.subscribe(res => this.browserGameId = res['id']);
 
@@ -75,6 +77,7 @@ export class BrowserGameDetailComponent implements OnInit {
     this.avaliacao.browserGame.id = this.browserGameId;
     this.avaliacao.usuario.id = window.localStorage.getItem("userId");
     this.avaliacaoService.createAvaliacao(this.avaliacao).subscribe((data: Avaliacao) => {
+      this.notifierService.showSuccesNotification(`Obrigado por avaliar!`)
       console.log(data);
       this.load();
     })
@@ -84,6 +87,7 @@ export class BrowserGameDetailComponent implements OnInit {
   editarAvaliacao(): void {
     this.avaliacaoService.editAvaliacao(this.avaliacao).subscribe((data: Avaliacao) => {
       console.log("Avaliacao edited"+data);
+      this.notifierService.showSuccesNotification(`Sua avaliação foi editada!`)
       this.load();
     })
   }
@@ -92,6 +96,7 @@ export class BrowserGameDetailComponent implements OnInit {
     
     this.avaliacaoService.addCurtida(avaliacaoId, this.userId).subscribe((data: Avaliacao) => {
       console.log(data);
+      this.notifierService.showSuccesNotification(`Você curtiu uma avaliação!`)
       this.load();
     })
   }
@@ -100,6 +105,7 @@ export class BrowserGameDetailComponent implements OnInit {
     
     this.avaliacaoService.deleteCurtida(avaliacaoId, this.userId).subscribe((data: Avaliacao) => {
       console.log(data);
+      this.notifierService.showSuccesNotification(`Você descurtiu uma avaliação!`)
       this.load();
     })
   }
