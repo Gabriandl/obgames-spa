@@ -54,12 +54,15 @@ export class CategoriaComponent implements OnInit {
         if (this.dataSource.map(b => b.id).includes(result.id)){
           this.categoriaService.editCategoria(result)
           .subscribe((data: Categoria) => {
+            this.notifierService.showSuccesNotification(`Categoria editada!`)
+
             this.ngOnInit();
             this.table.renderRows();
           });
         } else {
           this.categoriaService.createCategorias(result)
             .subscribe((data: Categoria) => {
+              this.notifierService.showSuccesNotification(`Categoria criada!`)
               this.ngOnInit();
               this.table.renderRows();
             })
@@ -76,7 +79,7 @@ export class CategoriaComponent implements OnInit {
     this.categoriaService.deleteCategoria(id)
     .subscribe({
       next: n => { 
-        this.notifierService.showSuccesNotification(n);
+        this.notifierService.showSuccesNotification(`Categoria deletado!`)
         this.ngOnInit(); 
         this.table.renderRows();
       },

@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
           window.localStorage.setItem('username', n.username);
           window.localStorage.setItem('userId', n.id);
           window.localStorage.setItem('roles', n.roles);          
-          this.notifierService.showSuccesNotification(`Login efetuado: ${n.username}`);
+          this.notifierService.showSuccesNotification(`Bem vindo ao Only Browser Games ${n.username}!`);
           // navego para a rota vazia novamente
           this.router.navigate(['']);
           } else if (n.message) {
