@@ -48,4 +48,8 @@ export class ProfileComponent implements OnInit {
     
   }
 
+  editarSenha() {
+    this.router.navigate(['/reset-password']);
+  }
+
 }

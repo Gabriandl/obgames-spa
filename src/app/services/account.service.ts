@@ -13,8 +13,12 @@ export class AccountService {
   constructor(private http: HttpClient) { }
 
   login(user: any) {
-      return this.http.post<any>(`${this.apiUrl}/api/auth/signin`, user);
-    
+    return this.http.post<any>(`${this.apiUrl}/api/auth/signin`, user);
+
+  }
+  resetPassword(body: any) {
+    return this.http.post<any>(`${this.apiUrl}/api/auth/reset-password`, body);
+
   }
 
   createAccount(usuario: Usuario) {

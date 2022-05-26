@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CreateAccountComponent } from './account/create-account/create-account.component';
 import { LoginComponent } from './account/login/login.component';
+import { ResetPasswordComponent } from './account/reset-password/reset-password.component';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './services/auth.guard';
 import { AuthenticationComponent } from './views/authentication/authentication.component';
@@ -40,6 +41,11 @@ const routes: Routes = [
   { 
     path: 'categoria', 
     component: CategoriaComponent, 
+    canActivate: [AuthGuard] 
+  },
+  { 
+    path: 'reset-password', 
+    component: ResetPasswordComponent, 
     canActivate: [AuthGuard] 
   },
   { 

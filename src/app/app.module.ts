@@ -40,6 +40,7 @@ import { StarRatingComponent } from './shared/star-rating/star-rating.component'
 import { ProfileComponent } from './views/profile/profile.component';
 import { RecomendacaoComponent } from './views/recomendacao/recomendacao.component';
 import { RelatorioComponent } from './views/relatorio/relatorio.component';
+import { ResetPasswordComponent } from './account/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { RelatorioComponent } from './views/relatorio/relatorio.component';
     StarRatingComponent,
     ProfileComponent,
     RecomendacaoComponent,
-    RelatorioComponent
+    RelatorioComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
